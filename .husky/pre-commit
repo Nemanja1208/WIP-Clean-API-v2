@@ -2,19 +2,29 @@
 . "$(dirname "$0")/_/husky.sh"
 
 echo '------PRE-COMMIT HOOK START------'
-echo 'Running pre commit hook by Nemo the Sensei'
+echo '------RUNNING PRE COMMIT HOOK BY NEMO THE SENSEI------'
 
 # Check if the code needs formatting
 if ! dotnet format --verify-no-changes; then
-  echo 'Code needs formatting. Running format...'
+  echo '------CODE NEEDS FORMATTING. RUNNING DOTNET FORMAT.....------'
   dotnet format
-  git add .
-  git commit -m "Formatted code by pre-commit hook"
+  echo '------CODE FORMATED, CHECK CHANGED FILES IN GIT CHANGES AND COMMIT AGAIN------'
+  exit 1
 fi
 
-# Build and test the project
-dotnet build --no-restore
-dotnet test --no-build --verbosity normal --no-restore
+# Build the project
+if ! dotnet build --no-restore; then
+  echo '------TEST-FAILED------'
+  echo '------PRE-COMMIT HOOK CANCELED------'
+  exit 1
+fi
 
-echo 'Pre-commit hook executed successfully - Thanks Nemo'
+# Test the project
+if ! dotnet test --verbosity normal --no-restore; then
+  echo '------BUILD-FAILED------'
+  echo '------PRE-COMMIT HOOK CANCELED------'
+  exit 1
+fi
+
+echo '------PRE-COMMIT HOOK EXECUTED SUCCESSFULLY - THANKS NEMO------'
 echo '------PRE-COMMIT HOOK END------'
