@@ -14,14 +14,14 @@ fi
 
 # Build the project
 if ! dotnet build --no-restore; then
-  echo '------TEST-FAILED------'
+  echo '------BUILED-FAILED------'
   echo '------PRE-COMMIT HOOK CANCELED------'
   exit 1
 fi
 
 # Test the project
 if ! dotnet test --verbosity normal --no-restore; then
-  echo '------BUILD-FAILED------'
+  echo '------TEST-FAILED------'
   echo '------PRE-COMMIT HOOK CANCELED------'
   exit 1
 fi
