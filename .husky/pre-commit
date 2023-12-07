@@ -1,10 +1,15 @@
 #!/bin/sh
 	. "$(dirname "$0")/_/husky.sh"
 
+echo '------PRE-COMMIT HOOK START------'
 echo 'Running pre commit hook by Nemo the Sensei'
 
-	dotnet format
+	if dotnet format --check; then
+	 git add .
+	 git commit -m "Format code"
+	fi
 	dotnet build
 	dotnet test
 
 echo 'Pre-commit hook executed successfully - Thanks Nemo'
+echo '------PRE-COMMIT HOOK END------'
