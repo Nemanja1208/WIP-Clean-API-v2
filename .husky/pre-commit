@@ -1,0 +1,10 @@
+#!/bin/sh
+	. "$(dirname "$0")/_/husky.sh"
+
+echo 'Running pre commit hook by Nemo the Sensei'
+
+	dotnet format
+	dotnet build
+	dotnet test
+
+echo 'Pre-commit hook executed successfully - Thanks Nemo'
