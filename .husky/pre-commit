@@ -13,8 +13,8 @@ if ! dotnet format --verify-no-changes; then
 fi
 
 # Build and test the project
-dotnet build
-dotnet test
+dotnet build --no-restore
+dotnet test --no-build --verbosity normal --no-restore
 
 echo 'Pre-commit hook executed successfully - Thanks Nemo'
 echo '------PRE-COMMIT HOOK END------'
