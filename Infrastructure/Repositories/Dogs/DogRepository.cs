@@ -4,7 +4,7 @@ using Microsoft.Extensions.Logging;
 
 namespace Infrastructure.Repositories.Dogs
 {
-    public class DogRepository: IDogRepository
+    public class DogRepository : IDogRepository
     {
         private readonly RealDatabase _realDatabase;
         private readonly ILogger<DogRepository> _logger;
