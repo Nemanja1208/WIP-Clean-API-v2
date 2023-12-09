@@ -24,7 +24,8 @@ namespace Application.Queries.Dogs.GetById
         {
             try
             {
-                _logger.LogDebug("Handling GetDogByIdQuery");
+                _logger.LogDebug("Successfulyl got mediatR query sent from Dog Controller, now next step");
+                _logger.LogDebug("Handling GetDogByIdQuery - TRYING TO GET DOG BY ID FROM REPOSITORY");
 
                 Dog wantedDog = await _dogRepository.GetDogById(request.Id);
 

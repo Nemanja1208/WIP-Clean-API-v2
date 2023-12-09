@@ -42,6 +42,7 @@ namespace API.Controllers.DogsController
         {
             try
             {
+                // Logg.Logg(Trying to send GetDogById Query with mediatR to Application layer and its handler)
                 return Ok(await _mediator.Send(new GetDogByIdQuery(dogId)));
             }
             catch (Exception ex)
