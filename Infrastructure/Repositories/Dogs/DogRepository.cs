@@ -35,7 +35,7 @@ namespace Infrastructure.Repositories.Dogs
             {
                 List<Dog> allDogsFromDatabase = _realDatabase.Dogs.ToList();
 
-                Dog wantedDog = allDogsFromDatabase.FirstOrDefault(dog => dog.Id == dogId)!;
+                Dog wantedDog = allDogsFromDatabase.FirstOrDefault(dog => dog.AnimalId == dogId)!;
 
                 return await Task.FromResult(wantedDog);
             }

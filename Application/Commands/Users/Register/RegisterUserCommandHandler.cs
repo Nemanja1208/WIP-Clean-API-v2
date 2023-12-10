@@ -30,7 +30,7 @@ namespace Application.Commands.Users.Register
             // Here can we use something called AutoMapper, helps us convert Dtos to Domain Models...
             var userToCreate = new UserModel
             {
-                Id = Guid.NewGuid(),
+                UserId = Guid.NewGuid(),
                 UserName = request.NewUser.Username,
                 UserPassword = request.NewUser.Password,
             };

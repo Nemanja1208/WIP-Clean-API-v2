@@ -13,6 +13,8 @@ namespace Application
 
             services.AddValidatorsFromAssembly(assembly);
 
+            services.AddAutoMapper(assembly);
+
             return services;
         }
     }

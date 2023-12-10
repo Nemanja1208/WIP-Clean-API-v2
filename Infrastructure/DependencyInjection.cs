@@ -3,6 +3,7 @@ using Infrastructure.Database.DatabaseHelpers;
 using Infrastructure.Database.MySQLDatabase;
 using Infrastructure.Repositories.Authorization;
 using Infrastructure.Repositories.Dogs;
+using Infrastructure.Repositories.UserAnimals;
 using Infrastructure.Repositories.Users;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace Infrastructure
             services.AddScoped<AuthRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IDogRepository, DogRepository>();
+            services.AddScoped<IUserAnimalsRepository, UserAnimalRepository>();
 
 
             services.AddDbContext<RealDatabase>(options =>

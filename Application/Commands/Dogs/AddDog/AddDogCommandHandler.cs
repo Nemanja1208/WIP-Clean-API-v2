@@ -18,7 +18,7 @@ namespace Application.Commands.Dogs
         {
             Dog dogToCreate = new()
             {
-                Id = Guid.NewGuid(),
+                AnimalId = Guid.NewGuid(),
                 Name = request.NewDog.Name
             };
 

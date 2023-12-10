@@ -22,14 +22,14 @@ namespace Test.Repository.User.RegisterUser
         public async Task RegisterUser_Success()
         {
             // Arrange
-            var userToRegister = new UserModel() { Id = Guid.NewGuid(), UserName = "Necika2221!", UserPassword = "pASSWROD12343" };
+            var userToRegister = new UserModel() { UserId = Guid.NewGuid(), UserName = "Necika2221!", UserPassword = "pASSWROD12343" };
 
             // Act
             var registeredUser = await _userRepository.RegisterUser(userToRegister);
 
             // Assert
             Assert.NotNull(registeredUser);
-            Assert.That(registeredUser.Id, Is.EqualTo(userToRegister.Id));
+            Assert.That(registeredUser.UserId, Is.EqualTo(userToRegister.UserId));
             Assert.That(registeredUser.UserName, Is.EqualTo(userToRegister.UserName));
             Assert.That(registeredUser.UserPassword, Is.EqualTo(userToRegister.UserPassword));
             _mockRealDatabase.Verify(db => db.Users.Add(It.IsAny<UserModel>()), Times.Once);

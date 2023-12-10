@@ -14,7 +14,7 @@ namespace Application.Commands.Dogs.UpdateDog
         }
         public Task<Dog> Handle(UpdateDogByIdCommand request, CancellationToken cancellationToken)
         {
-            Dog dogToUpdate = _mockDatabase.Dogs.FirstOrDefault(dog => dog.Id == request.Id)!;
+            Dog dogToUpdate = _mockDatabase.Dogs.FirstOrDefault(dog => dog.AnimalId == request.Id)!;
 
             dogToUpdate.Name = request.UpdatedDog.Name;
 

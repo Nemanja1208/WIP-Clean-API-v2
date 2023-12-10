@@ -39,7 +39,7 @@ namespace Infrastructure.Repositories.Authorization
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim(ClaimTypes.Name, user.UserName),
-                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                    new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()),
                     new Claim(ClaimTypes.Role, "Admin")
                 }),
                 Expires = DateTime.UtcNow.AddHours(1),
